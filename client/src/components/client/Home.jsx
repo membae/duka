@@ -1,8 +1,10 @@
 import React from "react";
+import Navbar from "../Navbar";
 
 function Home() {
   return (
-    <div className="p-4">
+    <div >
+      <Navbar/>
       {/* Title Section */}
       <div className="flex items-center justify-center mb-8">
         <h1 className="text-3xl font-bold">Happy shopping</h1>

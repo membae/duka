@@ -56,10 +56,10 @@ function Navbar() {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="bg-black text-white shadow-md">
-          <a href="#" className="block py-2 px-4 hover:bg-blue-500">Home</a>
-          <a href="#" className="block py-2 px-4 hover:bg-blue-500">About</a>
-          <a href="#" className="block py-2 px-4 hover:bg-blue-500">Services</a>
-          <a href="#" className="block py-2 px-4 hover:bg-blue-500">Contact</a>
+          <a href="#" className="block py-2 px-4 hover:bg-gray-800">Home</a>
+          <a href="#" className="block py-2 px-4 hover:bg-gray-800">About</a>
+          <a href="#" className="block py-2 px-4 hover:bg-gray-800">Services</a>
+          <a href="#" className="block py-2 px-4 hover:bg-gray-800">Contact</a>
         </div>
       )}
     </nav>
