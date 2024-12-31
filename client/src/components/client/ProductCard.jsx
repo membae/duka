@@ -1,29 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import Navbar from '../Navbar';
+import { ProductContext } from '../ProductContext';
+
 
 function ProductCard() {
-    const[products,setProducts]=useState([])
-    useEffect(()=>{
-        fetch("http://localhost:3000/products")
-        .then(res=>res.json())
-        .then(data=>setProducts(data))
-    },[])
+    const { products, loading, error } = useContext(ProductContext);
 
-  return (
-    <div>
-      <Navbar />
-      <div className="product-list">
-        {products.map(product => (
-          <div key={product.id} className="product-card">
-            <h3>{product.name}</h3>
-            <p>{product.description}</p>
-            <p>Price: ${product.price}</p>
-            <p>Category: {product.category}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+    if (loading) return <p>Loading products...</p>;
+    if (error) return <p>Error: {error}</p>;
+
+    return (
+        <div>
+            <Navbar />
+            <div className="product-list">
+                {products.map(product => (
+                    <div key={product.id} className="product-card">
+                        <h3>{product.name}</h3>
+                        <p>{product.description}</p>
+                        <p>Price: ${product.price}</p>
+                        <p>Category: {product.category}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
 }
 
 export default ProductCard;
