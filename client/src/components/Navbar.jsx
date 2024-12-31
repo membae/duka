@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import App from '../App';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +16,7 @@ function Navbar() {
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-6">
           <a href="/" className="hover:text-gray-300">Home</a>
-          <a href="#" className="hover:text-gray-300">About</a>
+          <a href="/products" className="hover:text-gray-300">Products</a>
           <a href="#" className="hover:text-gray-300">Services</a>
           <a href="#" className="hover:text-gray-300">Contact</a>
         </div>
@@ -56,8 +57,8 @@ function Navbar() {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="bg-black text-white shadow-md">
-          <a href="#" className="block py-2 px-4 hover:bg-gray-800">Home</a>
-          <a href="#" className="block py-2 px-4 hover:bg-gray-800">About</a>
+          <a href="/" className="block py-2 px-4 hover:bg-gray-800">Home</a>
+          <a href="/products" className="block py-2 px-4 hover:bg-gray-800">Products</a>
           <a href="#" className="block py-2 px-4 hover:bg-gray-800">Services</a>
           <a href="#" className="block py-2 px-4 hover:bg-gray-800">Contact</a>
         </div>
