@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import App from '../App';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-black text-white shadow-md">
-
+    <nav className="bg-black text-white shadow-md relative">
       <div className="container mx-auto flex justify-between items-center py-4 px-6">
         {/* Logo */}
         <div className="text-xl font-bold">
@@ -21,11 +21,19 @@ function Navbar() {
           <a href="#" className="hover:text-gray-300">Contact</a>
         </div>
 
-        {/* Mobile Menu Toggle */}
-        <div className="md:hidden">
+        {/* Cart Icon (Visible on both Desktop and Mobile) */}
+        <div className="flex items-center space-x-4">
+          {/* Cart Icon */}
+          <div className="relative">
+            <a href="/cart" className="hover:text-gray-300">
+              <FontAwesomeIcon icon={faCartShopping} className="text-xl" />
+            </a>
+          </div>
+
+          {/* Mobile Menu Toggle (Visible only on Mobile) */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="focus:outline-none"
+            className="md:hidden focus:outline-none"
           >
             <svg
               className="w-6 h-6"
@@ -56,7 +64,7 @@ function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="bg-black text-white shadow-md">
+        <div className="bg-black text-white shadow-md mt-8 z-20">
           <a href="/" className="block py-2 px-4 hover:bg-gray-800">Home</a>
           <a href="/products" className="block py-2 px-4 hover:bg-gray-800">Products</a>
           <a href="#" className="block py-2 px-4 hover:bg-gray-800">Services</a>

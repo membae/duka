@@ -34,6 +34,18 @@ function ProductCard() {
         setSelectedCategory(e.target.value);
     };
 
+    // Handle add to cart functionality
+    const handleAddToCart = (product) => {
+        console.log(`Added to cart: ${product.name}`);
+        // Logic for adding the product to cart goes here
+    };
+
+    // Handle buy functionality
+    const handleBuy = (product) => {
+        console.log(`Buying: ${product.name}`);
+        // Logic for initiating the purchase goes here
+    };
+
     return (
         <div>
             <Navbar />
@@ -81,6 +93,23 @@ function ProductCard() {
                             <p className="text-gray-700 mb-2">{product.description}</p>
                             <p className="text-lg font-semibold text-gray-900 mb-2">Price: ${product.price}</p>
                             <p className="text-sm text-gray-500">Category: {product.category}</p>
+                        </div>
+                        <div className="p-4 flex justify-between">
+                            {/* Add to Cart button */}
+                            <button
+                                onClick={() => handleAddToCart(product)}
+                                className="bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-900"
+                            >
+                                Add to Cart
+                            </button>
+
+                            {/* Buy button */}
+                            <button
+                                onClick={() => handleBuy(product)}
+                                className="bg-blue-800 text-white px-4 py-2 rounded-lg hover:bg-blue-900"
+                            >
+                                Buy
+                            </button>
                         </div>
                     </div>
                 ))}
