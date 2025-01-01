@@ -38,23 +38,22 @@ function ProductCard() {
         <div>
             <Navbar />
 
-            {/* Search bar */}
-            <div className="p-4">
+            {/* Search and filter in one line */}
+            <div className="flex justify-between items-center p-4">
+                {/* Search bar */}
                 <input
                     type="text"
                     placeholder="Search products"
                     value={searchTerm}
                     onChange={handleSearchChange}
-                    className="p-2 w-full border border-gray-300 rounded-lg"
+                    className="p-2 w-80 border border-gray-300 rounded-lg"
                 />
-            </div>
 
-            {/* Category filter */}
-            <div className="p-4">
+                {/* Category filter */}
                 <select
                     value={selectedCategory}
                     onChange={handleFilterChange}
-                    className="p-2 border border-gray-300 rounded-lg"
+                    className="p-2 ml-4 border border-gray-300 rounded-lg"
                 >
                     <option value="">All Categories</option>
                     <option value="Electronics">Electronics</option>
