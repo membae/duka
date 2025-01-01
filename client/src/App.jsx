@@ -7,7 +7,7 @@ import ProductProvider from './components/ProductContext'
 
 function App() {
   return (
-    <ProductProvider>
+   
        <Router>
      <Routes>
         <Route path='/' element={<Home/>}></Route>
@@ -15,7 +15,7 @@ function App() {
         <Route path="/products" element={<ProductCard/>}></Route>
       </Routes>
      </Router>
-    </ProductProvider>
+   
   )
 }
 
