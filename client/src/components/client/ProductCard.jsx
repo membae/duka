@@ -3,7 +3,7 @@ import Navbar from '../Navbar';
 import { ProductContext } from '../ProductContext';
 
 function ProductCard() {
-    const { products } = useContext(ProductContext);
+    const { products, cart, setCart } = useContext(ProductContext);
 
     // State for search and filter
     const [searchTerm, setSearchTerm] = useState('');
@@ -36,8 +36,16 @@ function ProductCard() {
 
     // Handle add to cart functionality
     const handleAddToCart = (product) => {
+        // Check if product is already in the cart
+        const existingProduct = cart.find(item => item.id === product.id);
+        if (existingProduct) {
+            console.log(`Product already in the cart: ${product.name}`);
+            return; // Prevent adding the same product again
+        }
+        
+        // Add product to cart
+        setCart([...cart, product]);
         console.log(`Added to cart: ${product.name}`);
-        // Logic for adding the product to cart goes here
     };
 
     // Handle buy functionality

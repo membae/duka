@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { ProductContext } from './ProductContext';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { cart } = useContext(ProductContext); // Access the cart from context
 
   return (
     <nav className="bg-black text-white shadow-md relative">
@@ -21,16 +23,20 @@ function Navbar() {
           <a href="#" className="hover:text-gray-300">Contact</a>
         </div>
 
-        {/* Cart Icon (Visible on both Desktop and Mobile) */}
+        {/* Cart Icon with Count */}
         <div className="flex items-center space-x-4">
-          {/* Cart Icon */}
           <div className="relative">
-            <a href="/cart" className="hover:text-gray-300">
+            <a href="/cart" className="hover:text-gray-300 flex items-center">
               <FontAwesomeIcon icon={faCartShopping} className="text-xl" />
+              {cart.length > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                  {cart.length}
+                </span>
+              )}
             </a>
           </div>
 
-          {/* Mobile Menu Toggle (Visible only on Mobile) */}
+          {/* Mobile Menu Toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden focus:outline-none"
